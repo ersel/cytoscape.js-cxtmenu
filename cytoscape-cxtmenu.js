@@ -12,7 +12,8 @@
         }
       }
       */
-    ], 
+    ],
+    menuStayOpen: true, 
     fillColor: 'rgba(0, 0, 0, 0.75)', // the background colour of the menu
     activeFillColor: 'rgba(92, 194, 237, 0.75)', // the colour used to indicate the selected command
     activePadding: 20, // additional size in pixels for the active command
@@ -367,7 +368,9 @@
 
           .on('cxttapend', options.selector, function(e){
             var ele = this;
-            $parent.hide();
+            if( !options.menuStayOpen ){
+              $parent.hide();
+            }
 
             if( activeCommandI !== undefined ){
               var select = options.commands[ activeCommandI ].select;
@@ -379,7 +382,9 @@
           })
 
           .on('cxttapend', function(e){
-            $parent.hide();
+            if( !options.menuStayOpen ){
+              $parent.hide();
+            }
           })
         ;
       }
